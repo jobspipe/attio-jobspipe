@@ -29,7 +29,7 @@ export const JobsPipeWidgetContent = ({
 
   const hiringData = cache.values.hiringData
 
-  if (!hiringData || !hiringData.openRolesCount) {
+  if (!hiringData?.openRolesCount) {
     return (
       <Widget.TextWidget>
         <Widget.Title>JobsPipe Hiring Data</Widget.Title>
@@ -86,8 +86,7 @@ export const JobsPipeWidgetContent = ({
             <Table.HeaderCell>Posted</Table.HeaderCell>
           </Table.Header>
           <Table.Body>
-            {hiringData.jobs &&
-              hiringData.jobs.slice(0, 5).map((job) => (
+            {hiringData.jobs?.slice(0, 5).map((job) => (
               <Table.Row key={job.id}>
                 <Table.Cell>
                   <Link href={job.url}>{job.title}</Link>
@@ -105,7 +104,7 @@ export const JobsPipeWidgetContent = ({
                     : "—"}
                 </Table.Cell>
               </Table.Row>
-              ))}
+            ))}
           </Table.Body>
         </Table>
 
