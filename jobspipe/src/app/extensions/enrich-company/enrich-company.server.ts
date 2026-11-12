@@ -1,3 +1,4 @@
+import ensureJobsPipeAttributes from "../../../lib/ensure-attributes.server"
 import fetchCompanyHiringData from "../../../lib/fetch-company-hiring-data.server"
 
 interface EnrichmentResult {
@@ -11,6 +12,8 @@ export default async function enrichCompanyWithJobsPipe(
   recordId: string,
   companyDomain: string
 ): Promise<EnrichmentResult> {
+  await ensureJobsPipeAttributes()
+
   const hiringData = await fetchCompanyHiringData(companyDomain)
 
   const ATTIO_API_TOKEN = process.env.ATTIO_API_TOKEN

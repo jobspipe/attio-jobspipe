@@ -89,13 +89,14 @@ The widget automatically fetches and displays hiring data for any company with a
 From any company record's overflow menu (three dots):
 
 1. Select "Enrich with JobsPipe"
-2. The action fetches hiring data and writes these attributes:
-   - `jobspipe_open_roles` (number)
-   - `jobspipe_departments` (text)
-   - `jobspipe_latest_job_posted` (date)
-   - `jobspipe_url` (text)
+2. The action automatically creates these custom attributes (if they don't exist):
+   - `jobspipe_open_roles` (number) - Number of open job postings
+   - `jobspipe_departments` (text) - Departments currently hiring
+   - `jobspipe_latest_job_posted` (date) - Date of most recent posting
+   - `jobspipe_url` (text) - Link to full hiring profile on JobsPipe
+3. Fetches hiring data and writes it to the company record
 
-**Note**: You'll need to create these custom attributes in your Attio workspace for enrichment to work. Go to Settings → Objects → Companies → Add Attribute.
+**Note**: Custom attributes are created automatically on first use. No manual setup required!
 
 ### Bulk Enrichment
 
@@ -222,11 +223,9 @@ For full API documentation, see: https://docs.jobspipe.dev
 - Confirm the company domain is accessible (not a private/invalid domain)
 
 ### Enrichment action fails
-- Ensure custom attributes are created in your workspace:
-  - `jobspipe_open_roles` (Number)
-  - `jobspipe_departments` (Text)
-  - `jobspipe_latest_job_posted` (Date)
-  - `jobspipe_url` (Text)
+- Custom attributes are created automatically on first use
+- Check that the app has permission to create attributes (workspace admin required)
+- Verify the API key is valid and has credits
 
 ## Support
 
