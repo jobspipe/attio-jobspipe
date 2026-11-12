@@ -1,0 +1,7 @@
+query GetCompanyDomain($recordId: String!) {
+  company: record(id: $recordId, object: "companies") {
+    ... on Company {
+      domains
+    }
+  }
+}
